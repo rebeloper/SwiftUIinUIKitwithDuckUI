@@ -11,7 +11,10 @@ import DuckUI
 class RootViewController: D_ViewController {
     
     // MARK:- View
-    let helloDuckUILabel = UILabel()
+    let helloDuckUILabel = UILabel().text("DuckUI")
+        .textAlignment(.center).debug()
+    let helloDuckUILabel2 = UILabel().text("DuckUI2")
+        .textAlignment(.center).debug()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -21,9 +24,15 @@ class RootViewController: D_ViewController {
     override func setupViewsWith(safeArea: D_ViewSafeArea) {
         super.setupViewsWith(safeArea: .all)
         container.D_VStack(
-            helloDuckUILabel.text("Hello DuckUI")
-                .textAlignment(.center)
-        )
+            Divider().vertical(.normal),
+            container.D_HStack(
+                helloDuckUILabel,
+                Spacer(),
+                helloDuckUILabel2,
+                spacing: 20,
+                distribution: .fill),
+            Spacer(),
+            spacing: 10)
     }
     
     override func observe() {
