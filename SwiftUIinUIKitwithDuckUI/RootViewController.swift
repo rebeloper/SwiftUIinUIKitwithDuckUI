@@ -25,17 +25,10 @@ class RootViewController: D_ViewController {
     override func setupViewsWith(safeArea: D_ViewSafeArea) {
         super.setupViewsWith(safeArea: .all)
         container.D_VStack(
-            Divider().vertical(.extraSmall).debug(),
-            helloDuckUILabel.setHeight(200).debug(),
-            container.D_HStack(
-                Divider().setWidth(23).debug(),
-                simpleView.setWidth(100).debug(),
-                helloDuckUILabel2.debug(),
-                Spacer(),
-                spacing: 20,
-                distribution: .fill).addDebug(),
+            Divider().vertical(.extraLarge).debug(),
+            helloDuckUILabel.setPad(.allMargins, amount: 12).debug(),
             Spacer(),
-            spacing: 10)
+            spacing: 0).pad(.horizontalMargins, amount: 32)
     }
     
     override func observe() {
